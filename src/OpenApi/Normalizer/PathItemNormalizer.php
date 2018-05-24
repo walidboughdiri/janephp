@@ -36,6 +36,9 @@ class PathItemNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (empty($data)) {
+            return new \Jane\OpenApi\Model\PathItem();
+        }
         if (!is_object($data)) {
             throw new InvalidArgumentException();
         }
